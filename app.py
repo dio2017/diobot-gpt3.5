@@ -18,6 +18,9 @@ st.subheader("ChatGPT@3.5")
 openai.api_key=st.text_input("Paste your OpenAI API Key here", value="", type="password")
 prompt=st.text_input("Prompt", value="")
 
+text =st.empty()
+show_messages(text)
+
 if st.button("Send"):
   with st.spinner("Generating response..."):
     st.session_state["messages"] += [{"role": "user","content": prompt}]
@@ -31,6 +34,3 @@ if st.button("Send"):
 
 if st.button("Clear"):
   st.session_state["messages"] = BASE_PROMPT
-
-text =st.empty()
-show_messages(text)
