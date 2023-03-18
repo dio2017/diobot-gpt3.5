@@ -16,10 +16,11 @@ if "messages" not in st.session_state:
 st.subheader("ChatGPT@3.5")
 
 openai.api_key=st.text_input("Paste your OpenAI API Key here", value="", type="password")
-prompt=st.text_input("Prompt", value="")
 
 text =st.empty()
 show_messages(text)
+
+prompt=st.text_input("Prompt", value="")
 
 if st.button("Send"):
   with st.spinner("Generating response..."):
